@@ -3,8 +3,8 @@
 
 int main() {
     printf("Iniciando ejecucion del Script...\n");
-    int A = 90000; // Numero  filas matriz 1
-    int B = 50000; // Numero de columnas  matriz 1 y Numero de filas matriz 2
+    int A = 70000; // Numero  filas matriz 1
+    int B = 30000; // Numero de columnas  matriz 1 y Numero de filas matriz 2
     int C = 12300; // Numero de columnas matriz 2
 
     printf("\n Tamano de matrices de entrada:\n");
