@@ -4,17 +4,17 @@ CUDA son las siglas de Compute Unified Device Architecture (Arquitectura Unifica
 
 ## Ejecución de CUDA dentro del súiper computador GUANE
 Estando parados sobre GUANE debemos de solicitar recursos con el comando:
-srun -n 8 --pty /bin/bash
+"srun -n 8 --pty /bin/bash"
 En este caso estaremos usando una maquina que tiene 8 nodos con la máxima cantidad de GPUs disponibles, pero en dado caso que vayamos a requerir un numero específico de GPUs usamos el siguiente comando:
-srun -n 8 --gres=gpu:2 --pty /bin/bash
+"srun -n 8 --gres=gpu:2 --pty /bin/bash"
 Donde en este caso estamos solicitando el uso de 2 GPUs.
 En caso de querer acceder a otro tipo de maquina como lo es Yaje, usamos el siguiente comando:
-srun -p Viz -n 2 --pty /bin/bash
+"srun -p Viz -n 2 --pty /bin/bash"
 Estando posicionado sobre alguna de las particiones o maquinas, debemos de cargar los módulos que nos permitirán ejecutar nuestros códigos en CUDA:
-module load devtools/cuda/8.0
+"module load devtools/cuda/8.0"
 Una vez hecho esto ya solo queda compilar y ejecutar nuestros códigos
-nvcc XXX.cu -o Exec
-./Exec
+"nvcc XXX.cu -o Exec"
+"./Exec"
 
 
 ## Información del primer código (pt1.cu)
