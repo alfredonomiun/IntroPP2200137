@@ -37,13 +37,3 @@ También hay una solución propuesta donde se hace uso de la memoria unificada, 
 
 La mejora en el código del multidevice.cu se basa en poder agregar de forma dinámica la cantidad de GPU's que van a ejecutar el calculo y dividir los datos que llegan a estas GPU's de forma uniforme.
 Esto es posible haciendo una reestructuración del código sin que afecte la lógica del proceso.
-
-
-
-
-
-  ![](capturas/multidevice1.jpeg)
-
-- En la segunda imagen se muestran los resultados al ejecutar los códigos sobre la maquina felix
-  donde se ejecuta la prueba del código original y posteriormente el modificado con una asignación de 2 GPU
-  ![](capturas/multidevice2.jpeg)
