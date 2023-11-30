@@ -7,6 +7,8 @@ Lo primero que hago es entender la solucion encontrada, entonces, en este ejerci
 
 siguiendo, tenemos una funcion diseñada para determinar el numero de Fibonacci correspondiente a un valor proporcionado, el cual sera ingresado mediante teclado en un momento posterior. La funcion incluye una condicion que establece que, si el valor de n es menor o igual a 1, se devuelve el propio valor de n, ya que 0 y 1 son los dos primeros numeros de la serie de Fibonacci. En el caso contrario, si n no es menor o igual a 1, la funcion se invoca a si misma dos veces para calcular los numeros  Fibonacci anteriores a traves de (n-1) y (-n-2).
 Este enfoque se basa en la regla fundamental de la serie de Fibonacci, donde cada numero es la suma de sus dos predecesores. Por lo tanto, se calcula sumando los elementos Fibonacci(i-1) y Fibonacci(i-2)
+
+
 ![image](https://github.com/alfredonomiun/IntroPP2200137/assets/94908591/a6274fa0-702d-4c00-8ca4-a0506de90d8a)
 
 Se implementa una función denominada main, la cual utiliza el estándar de la biblioteca de MPI (Message Passing Interface) con el propósito de facilitar la comunicación entre varios procesos. Esta función toma como argumentos argc y argv, lo que posibilita la interacción entre los distintos procesos. La utilización de MPI permite la transferencia de mensajes entre los procesos, contribuyendo así a la coordinación y colaboración eficiente entre ellos.
