@@ -47,3 +47,14 @@ El bucle para calcular la serie Fibonacci se modificó para que cada proceso MPI
 4- Usar MPI_Reduce para la suma global:
 Se reemplazó el envío y recepción manual de resultados con la función MPI_Reduce para realizar la suma global de las sumas locales de cada proceso.
 ![image](https://github.com/alfredonomiun/IntroPP2200137/assets/94908591/fbfe0798-8b6b-4207-9e15-3037c80640ff)
+
+## Explicacion porque da mejor tiempo
+
+
+La mejora en el tiempo de ejecución al usar MPI (Message Passing Interface) en lugar de un enfoque secuencial se debe principalmente a la capacidad de MPI para distribuir la carga de trabajo entre varios procesos y aprovechar los recursos paralelos disponibles.
+
+Cuando ejecutas el código de Fibonacci de manera secuencial, cada cálculo se realiza uno tras otro, sin aprovechar la capacidad de procesamiento paralelo de la máquina. En cambio, cuando utilizas MPI, divides el trabajo entre múltiples procesos, cada uno de los cuales puede realizar sus propios cálculos en paralelo.
+
+En el código modificado, cada proceso MPI calcula una parte de la serie Fibonacci de manera independiente. Esto significa que, en lugar de calcular la serie de forma secuencial, se esta distribuyendo la carga de trabajo entre diferentes procesos, lo que permite que múltiples cálculos se realicen simultáneamente.
+
+En resumen, MPI permite aprovechar la capacidad de procesamiento paralelo de una máquina, lo que puede llevar a una mejora significativa en el tiempo de ejecución en comparación con un enfoque secuencial, especialmente para problemas que se pueden dividir en tareas independientes y ejecutarse en paralelo.
