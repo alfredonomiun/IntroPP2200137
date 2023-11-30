@@ -1,6 +1,7 @@
 ## Explicacion codigo orignial fibonacci_o
 
-Lo primero que hago es entender la solucion encontrada, entonces, en este ejercicio lo primero que se hace es definir las bibliotecas iostream y mpi.h las cuales nos permiten utilizar las funciones y clases dadas por MPI, 
+Lo primero que hago es entender la solucion encontrada, entonces, en este ejercicio lo primero que se hace es definir las bibliotecas iostream y mpi.h las cuales nos permiten utilizar las funciones y clases dadas por MPI
+
 ![image](https://github.com/alfredonomiun/IntroPP2200137/assets/94908591/b94f36aa-205b-4fb2-ad20-7ca79f61d704)
 
 siguiendo, tenemos una funcion diseñada para determinar el numero de Fibonacci correspondiente a un valor proporcionado, el cual sera ingresado mediante teclado en un momento posterior. La funcion incluye una condicion que establece que, si el valor de n es menor o igual a 1, se devuelve el propio valor de n, ya que 0 y 1 son los dos primeros numeros de la serie de Fibonacci. En el caso contrario, si n no es menor o igual a 1, la funcion se invoca a si misma dos veces para calcular los numeros  Fibonacci anteriores a traves de (n-1) y (-n-2).
