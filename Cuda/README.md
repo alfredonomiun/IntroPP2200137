@@ -1,39 +1,36 @@
-# Ejercicios CUDA
+Prácticas CUDA
+CUDA representa las siglas de Arquitectura Unificada de Dispositivos de Cómputo (Compute Unified Device Architecture), refiriéndose a una plataforma de computación en paralelo. Incluye un compilador y un conjunto de herramientas de desarrollo diseñadas por Nvidia que habilitan a los programadores para utilizar una variante del lenguaje de programación C (CUDA C) con el fin de codificar algoritmos para las GPU de Nvidia.
 
-CUDA son las siglas de Compute Unified Device Architecture (Arquitectura Unificada de Dispositivos de Cómputo) que hace referencia a una plataforma de computación en paralelo que incluye un compilador y un conjunto de herramientas de desarrollo creadas por Nvidia que permiten a los programadores usar una variación del lenguaje de programación C (CUDA C) para codificar algoritmos en GPU de Nvidia.
 
-## Ejecución de CUDA dentro del súiper computador GUANE
-Estando parados sobre GUANE debemos de solicitar recursos con el comando:
+Ejecución de CUDA en el supercomputador GUANE
+Cuando nos encontramos en GUANE, solicitamos recursos con el comando:
 "srun -n 8 --pty /bin/bash"
-En este caso estaremos usando una maquina que tiene 8 nodos con la máxima cantidad de GPUs disponibles, pero en dado caso que vayamos a requerir un numero específico de GPUs usamos el siguiente comando:
+En este caso, estamos utilizando una máquina con 8 nodos que poseen la máxima cantidad de GPUs disponibles. Si necesitamos un número específico de GPUs, utilizamos el siguiente comando:
 "srun -n 8 --gres=gpu:2 --pty /bin/bash"
-Donde en este caso estamos solicitando el uso de 2 GPUs.
-En caso de querer acceder a otro tipo de maquina como lo es Yaje, usamos el siguiente comando:
+Aquí estamos solicitando el uso de 2 GPUs.
+Si deseamos acceder a otra máquina como Yaje, empleamos el siguiente comando:
 "srun -p Viz -n 2 --pty /bin/bash"
-Estando posicionado sobre alguna de las particiones o maquinas, debemos de cargar los módulos que nos permitirán ejecutar nuestros códigos en CUDA:
+Una vez en una de las particiones o máquinas, cargamos los módulos necesarios para ejecutar nuestros códigos en CUDA:
 "module load devtools/cuda/8.0"
-Una vez hecho esto ya solo queda compilar y ejecutar nuestros códigos
+Luego, solo queda compilar y ejecutar nuestros códigos:
+
 "nvcc XXX.cu -o Exec"
 "./Exec"
 
 
-## Información del primer código (pt1.cu)
+Detalles sobre el primer código (pt1.cu)
+Fundamentalmente, este programa utiliza CUDA para aprovechar la capacidad de procesamiento en paralelo de una GPU y realizar la suma de dos arreglos de manera eficiente.
+Se definen constantes como NB (número de bloques), NT (número de hilos por bloque) y N (tamaño total del arreglo), que desempeñan un papel crucial al realizar pruebas bajo diversas condiciones de recursos asignados.
 
-Esencialmente, este programa utiliza CUDA para aprovechar la capacidad de procesamiento en paralelo de una GPU y realizar la suma de dos arreglos de manera eficiente.
-En este se definen constantes como NB (número de bloques), NT (número de hilos por bloque) y N (tamaño total del arreglo). Los cuales juegan un papel importante a la hora de hacer pruebas bajo diversas condiciones de recursos asignados
+Información acerca del segundo código (multidevice.cu)
+Este código, un programa en C que utiliza CUDA y multihilo, calcula el producto punto de dos vectores en paralelo utilizando varios dispositivos GPU.
+Realiza esta tarea utilizando dos dispositivos GPU y emplea la biblioteca book.h para gestionar errores de CUDA y proporcionar funciones para trabajar con hilos.
 
-## Información del segundo código (multidevice.cu)
+Optimizaciones en pt1.cu
+En este código, se identifica un bucle for que no aporta funcionalidad y ralentiza el tiempo de ejecución. Al comentar o eliminar esta línea de código, donde se asigna este bloque de iteración, se aprecia una mejora en el tiempo de ejecución sin afectar el resultado de la suma.
 
-Este código es un programa en C que utiliza CUDA y multihilo para calcular el producto punto de dos vectores en paralelo utilizando múltiples dispositivos GPU.
-Esto lo realiza utilizando dos dispositivos GPU. Se utiliza la biblioteca book.h para gestionar errores de CUDA y proporciona funciones para trabajar con hilos.
+También se presenta una solución que hace uso de la memoria unificada y la versión de la librería CUDA que lo permite, obteniendo resultados similares a la primera mejora.
 
-## Mejoras hechas a pt1.cu
-
-Dentro de este código existe un ciclo for, el cual no realiza ninguna funcionalidad y retrasa el tiempo de ejecución, al comentar o eliminar esta linea de código donde se asigna este bloque de iteración se es apreciable la mejora en el tiempo de ejecución, sin que el resultado de la suma se vea afectado.
-
-También hay una solución propuesta donde se hace uso de la memoria unificada, y la versión de la librería CUDA que permite esto, obteniendo resultado similares a la primera mejora.
-
-## Mejoras hechas a multidevice.cu
-
-La mejora en el código del multidevice.cu se basa en poder agregar de forma dinámica la cantidad de GPU's que van a ejecutar el calculo y dividir los datos que llegan a estas GPU's de forma uniforme.
-Esto es posible haciendo una reestructuración del código sin que afecte la lógica del proceso.
+Mejoras en multidevice.cu
+La mejora en el código de multidevice.cu se centra en la posibilidad de agregar dinámicamente la cantidad de GPUs que ejecutarán el cálculo y dividir los datos de manera uniforme entre estas GPUs.
+Esto se logra mediante una reestructuración del código sin afectar la lógica del proceso.
