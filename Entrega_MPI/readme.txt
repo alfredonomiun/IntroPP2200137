@@ -1,4 +1,4 @@
-# Solucionador de la Ecuación del Calor - Mejoras del Proyecto
+#  Mejoras del Proyecto
 
 Este programa simula la evolución de un campo de temperatura en un dominio 2D utilizando la ecuación del calor, haciendo uso de la tecnología MPI para distribuir y acelerar los cálculos. La ecuación del calor es una ecuación diferencial parcial, que describe cómo varía la temperatura en un punto con respecto al tiempo y al espacio. 
 
