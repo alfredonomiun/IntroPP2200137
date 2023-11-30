@@ -1,4 +1,4 @@
-Explicacion codigo orignial fibonacci_o
+## Explicacion codigo orignial fibonacci_o
 
 Lo primero que hago es entender la solucion encontrada, entonces, en este ejercicio lo primero que se hace es definir las bibliotecas iostream y mpi.h las cuales nos permiten utilizar las funciones y clases dadas por MPI, 
 ![image](https://github.com/alfredonomiun/IntroPP2200137/assets/94908591/b94f36aa-205b-4fb2-ad20-7ca79f61d704)
